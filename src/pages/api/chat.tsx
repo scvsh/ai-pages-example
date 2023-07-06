@@ -1,3 +1,6 @@
+import { getServerSession } from "next-auth/next";
+import { authOptions } from "~/server/auth";
+
 // pages/api/chat.tsx
 
 import type { NextRequest } from "next/server";
@@ -15,7 +18,9 @@ const apiConfig = new Configuration({
 
 const openai = new OpenAIApi(apiConfig);
 
-export default async function (req: NextRequest) {
+export default async function (req: NextApiRequest, res: NextApiResponse<any>) {
+  const session = await getServerSession(req, res, authOptions);
+  console.log(session);
   // Extract the `messages` from the body of the request
   const { messages } = await req.body;
 
