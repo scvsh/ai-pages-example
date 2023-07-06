@@ -15,5 +15,5 @@ pnpm dev
 Proceed to localhost:3000 and authenticate with your Github account. After that, you should be able to visit the chat page and receive an error.
 
 ```
-Error: Failed to convert the response to stream. Received status code: 400.\n    at AIStream
+Error: TypeError: Cannot read properties of undefined (reading 'substring')
 ```
